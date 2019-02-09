@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {filterPipe} from './filterPipe';
 
 import { AppComponent } from './app.component';
 import { ListEmployeeComponent } from './emloyees/list-employee/list-employee.component';
@@ -17,7 +18,8 @@ import {canDeactivateRoute} from './routingGuard';
     AppComponent,
     ListEmployeeComponent,
     CreateEmployeeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    filterPipe
   ],
   imports: [
     BrowserModule,
