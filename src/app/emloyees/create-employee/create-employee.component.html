@@ -1,0 +1,50 @@
+<form #employeeForm="ngForm" (ngSubmit)="submitForm(employeeForm)">
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h1 class="text-center">Create Employee</h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="fullName">Full Name:</label>
+              <input type="text" id="fullName" name="fullName" [(ngModel)]="fullName" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Gender:</label>
+              <div class="form-control">
+                <label class="radio-inline">
+                  <input type="radio" name="gender" value="male" [(ngModel)]="gender">Male    
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" value="female" [(ngModel)]="gender">   Female
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<h4>Value of the form {{employeeForm.value |json}}</h4>

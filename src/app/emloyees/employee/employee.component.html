@@ -1,0 +1,23 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Date Of Birth</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <td>{{emp.name}}</td>
+    <td>{{emp.gender}}</td>
+    <td> {{emp.dateOfBirth | date}}</td>
+    {{emp.phoneNumber}}
+  </tr>
+</tbody>
+</table>
+<br>
+<button (click)="onClick()" class="btn btn-primary">Back to List</button>
+<div *ngIf="errorMessage">
+<h2>we have a error + {{errorMessage}}</h2>
+</div>
