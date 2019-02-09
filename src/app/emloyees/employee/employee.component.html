@@ -18,6 +18,7 @@
 </table>
 <br>
 <button (click)="onClick()" class="btn btn-primary">Back to List</button>
+<button class="btn btn-primary pull-right" (click)="nextEmployee()">Next Employee</button>
 <div *ngIf="errorMessage">
 <h2>we have a error + {{errorMessage}}</h2>
 </div>
