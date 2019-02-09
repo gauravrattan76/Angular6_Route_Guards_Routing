@@ -16,6 +16,8 @@ export class CreateEmployeeComponent implements OnInit {
 
   submitForm(employeeForm :NgForm):void{
     console.log("Value of the form--"+ employeeForm.value);
+    this.createEmployeeForm.reset({
+    });
   }
 
   @ViewChild('employeeForm') public createEmployeeForm:NgForm;

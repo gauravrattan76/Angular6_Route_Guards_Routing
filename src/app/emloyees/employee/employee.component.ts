@@ -35,8 +35,8 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-  onClick(): void {
-    this._router.navigate(['/list']);
+  onClick(empid): void {
+    this._router.navigate(['/list',{id:empid}]);
   }
 
   nextEmployee(){
