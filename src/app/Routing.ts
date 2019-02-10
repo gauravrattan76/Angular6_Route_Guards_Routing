@@ -9,13 +9,9 @@ import {PreloadAllModules} from '@angular/router';
 import {customPreloadService} from './customPreLoadService';
 
 const route : Routes = [
-    //{path:'', redirectTo:'list',pathMatch:'full'},
-    // {path:'create', component: CreateEmployeeComponent,canDeactivate:[canDeactivateRoute] },
-    // {path:'list', component: ListEmployeeComponent},
-    // {path:'list/:id', component: EmployeeComponent}
     {path:'', redirectTo:'',pathMatch:'full'},
     {path:'', component:AppComponent},
-    { path: 'list',data:{preload:true} ,loadChildren: './app/emloyees/employeeModule#employeeModule' }
+    { path: 'list',data:{preload:true} ,loadChildren: 'src/app/emloyees/employeeModule#employeeModule' }
 ]
 
 export const routing : ModuleWithProviders = RouterModule.forRoot(route,{preloadingStrategy:customPreloadService});
