@@ -5,7 +5,8 @@ import { CreateEmployeeComponent } from './emloyees/create-employee/create-emplo
 import {EmployeeComponent} from './emloyees/employee/employee.component';
 import {canDeactivateRoute} from './routingGuard';
 import { AppComponent } from './app.component';
-import {PreloadAllModules} from '@angular/router'
+import {PreloadAllModules} from '@angular/router';
+import {customPreloadService} from './customPreLoadService';
 
 const route : Routes = [
     //{path:'', redirectTo:'list',pathMatch:'full'},
@@ -14,7 +15,7 @@ const route : Routes = [
     // {path:'list/:id', component: EmployeeComponent}
     {path:'', redirectTo:'',pathMatch:'full'},
     {path:'', component:AppComponent},
-    { path: 'list', loadChildren: './app/emloyees/employeeModule#employeeModule' }
+    { path: 'list',data:{preload:true} ,loadChildren: './app/emloyees/employeeModule#employeeModule' }
 ]
 
-export const routing : ModuleWithProviders = RouterModule.forRoot(route,{preloadingStrategy:PreloadAllModules});
+export const routing : ModuleWithProviders = RouterModule.forRoot(route,{preloadingStrategy:customPreloadService});
