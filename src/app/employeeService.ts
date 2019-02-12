@@ -1,7 +1,9 @@
-import {HttpClient,HttpErrorResponse} from '@angular/common/http';
+import {HttpClient,HttpErrorResponse,HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators';
+
+
 
 @Injectable()
 export class employeeService{
@@ -9,6 +11,8 @@ export class employeeService{
     constructor(private _http :HttpClient){
 
     }
+
+    
 
     getEmployes():Observable<any[]>{
         return this._http.get<any[]>("http://localhost:3000/employees")
@@ -19,6 +23,32 @@ export class employeeService{
         return this._http.get<any[]>("http://localhost:3000/employees/"+ id)
         .pipe(catchError(this.handleError))
     }
+
+    postEmploye():Observable<any>{
+        return this._http.post<any>("http://localhost:3000/employees",
+        
+            {
+                "id": 4,
+                "name": "Tanveer",
+                "gender": "Male",
+                "contactPreference": "Phone",
+                "phoneNumber": 2345978640,
+                "dateOfBirth": "1979/11/20",
+                "department": "2",
+                "isActive": true,
+                "photoPath": "assets/ironman.png"
+              
+        },
+        {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        })
+        .pipe(catchError(this.handleError))
+    }
+
+    
+
 
     handleError(errorResponse:HttpErrorResponse)
     {
