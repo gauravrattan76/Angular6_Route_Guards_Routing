@@ -28,15 +28,15 @@ export class employeeService{
         return this._http.post<any>("http://localhost:3000/employees",
         
             {
-                "id": 4,
-                "name": "Tanveer",
+                "id": 5,
+                "name": "Gaurav",
                 "gender": "Male",
                 "contactPreference": "Phone",
                 "phoneNumber": 2345978640,
                 "dateOfBirth": "1979/11/20",
                 "department": "2",
                 "isActive": true,
-                "photoPath": "assets/ironman.png"
+                "photoPath": "assets/batman.png"
               
         },
         {
@@ -46,6 +46,12 @@ export class employeeService{
         })
         .pipe(catchError(this.handleError))
     }
+
+    deleteEmploye(id):Observable<any>{
+        return this._http.delete<any>("http://localhost:3000/employees/" + id)
+        .pipe(catchError(this.handleError))
+    }
+
 
     
 
