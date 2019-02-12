@@ -26,11 +26,14 @@ export class CreateEmployeeComponent implements OnInit {
     });
   }
 
-  id = 4;
+  id = 5;
 
 
   deleteEmp(){
-    return this._employeeService.deleteEmploye(this.id).subscribe(
+    // return this._employeeService.deleteEmploye(this.id).subscribe(
+    //   data => this.emp = data
+    // )
+    return this._employeeService.putEmployee(this.id).subscribe(
       data => this.emp = data
     )
   }

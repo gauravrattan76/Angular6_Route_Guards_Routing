@@ -53,7 +53,29 @@ export class employeeService{
     }
 
 
-    
+    putEmployee(id1):Observable<any>{
+        return this._http.put<any>("http://localhost:3000/employees/"+id1,
+        
+        {
+            "id": 5,
+            "name": "Ritika",
+            "gender": "Female",
+            "contactPreference": "Phone",
+            "phoneNumber": 2345978640,
+            "dateOfBirth": "1979/11/20",
+            "department": "2",
+            "isActive": true,
+            "photoPath": "assets/batman.png"
+          
+    },
+    {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
+    })
+    .pipe(catchError(this.handleError))
+
+    }
 
 
     handleError(errorResponse:HttpErrorResponse)
